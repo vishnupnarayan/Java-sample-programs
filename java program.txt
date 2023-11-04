@@ -1,0 +1,61 @@
+import java.io.*;
+public class employee
+{
+	String name;
+	int bs;
+	float da,hra,pf,ns;
+	void read_data(String N,int B)   
+	{
+		name=N;
+		bs=B;
+		da=0.0;
+		hra=0.0;
+		pf=0.0;
+		ns=0.0
+	}
+	void calculate()
+	{
+		da=bs*0.25;
+		hra=bs*0.3;
+		pf=bs*0.05;
+		ns=bs+da+hra-pf;
+	}
+	void print_salary()
+	{
+		System.out.println("Name : "+name);
+		System.out.println("Basic Salary : "+bs);
+		System.out.println("DA : "+da);
+		System.out.println("HRA : "+hra);
+		System.out.println("PF : "+pf);
+		System.out.println("Net Salary : "+ns);
+	}
+}		
+public class employeemain
+{
+	public static void main(String args[])
+	{
+		String nm;
+		int by,n,i;
+		Scanner Sc=new Scanner(System.in);
+		System.out.println("Enter the number of employees : ");
+		n=Sc.nextInt();
+		employee E=new employee[n];
+		for(i=0;i<n;i++)
+		{
+			System.out.println("Enter employee name and basic salary : ");
+			nm=Sc.nextLine();
+			by=Sc.nextInt();
+			E[i].read_data(nm,by);
+			E[i].calculate();
+		}
+		System.out.println("Employee salary slip ");
+		for(i=0;i<n;i++)
+		{
+			E[i].print_salary();
+		}	
+	}
+}
+
+
+
+
